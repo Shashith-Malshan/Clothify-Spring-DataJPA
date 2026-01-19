@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("customerInfo")
@@ -26,8 +27,21 @@ public class CustomerController {
     }
 
     @GetMapping("{id}")
-    public CustomerDto findById(@PathVariable String id){
+    public Optional<CustomerDto> findById(@PathVariable String id){
         return customerService.findById(id);
     }
+
+    @DeleteMapping("{id}")
+    public String deleteById(@PathVariable String id){
+        customerService.deleteById(id);
+        return "Successfully deleted";
+    }
+
+    @PutMapping("{id}")
+    public String update(@PathVariable String id,@RequestBody CustomerDto customerDto){
+        customerService.update(id,customerDto);
+        return "Updated Successfully";
+    }
+
 
 }
