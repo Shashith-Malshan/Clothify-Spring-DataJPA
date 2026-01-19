@@ -20,4 +20,8 @@ public class CustomerService {
     public List<CustomerDto> findAll() {
         return customerRepository.findAll();
     }
+
+    public CustomerDto findById(String id) {
+        return customerRepository.findById(id);
+    }
 }

@@ -25,4 +25,9 @@ public class CustomerController {
         return customerService.findAll();
     }
 
+    @GetMapping("{id}")
+    public CustomerDto findById(@PathVariable String id){
+        return customerService.findById(id);
+    }
+
 }
