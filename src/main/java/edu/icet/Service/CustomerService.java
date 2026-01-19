@@ -5,6 +5,8 @@ import edu.icet.model.dto.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
 
@@ -13,5 +15,9 @@ public class CustomerService {
 
     public void save(CustomerDto customerDto) {
         customerRepository.save(customerDto);
+    }
+
+    public List<CustomerDto> findAll() {
+        return customerRepository.findAll();
     }
 }
